@@ -2,11 +2,12 @@ using NUnit.Framework;
 
 namespace ChargeLockerTests
 {
-    public class Tests
+    public class DoorTest
     {
         [SetUp]
         public void Setup()
         {
+
         }
 
         [Test]
