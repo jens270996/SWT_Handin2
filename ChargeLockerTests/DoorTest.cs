@@ -15,6 +15,7 @@ namespace ChargeLockerTests
         {
             Assert.That(5, Is.EqualTo(5));
             Assert.Pass();
+            Assert.That("Jens", Is.EqualTo("Gay"));
         }
 
     }
