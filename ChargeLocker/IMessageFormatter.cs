@@ -8,5 +8,7 @@
         public void DisplayRFIDError();
         public void DisplayOccupied();
         public void DisplayRemovePhone();
+
+        public void DisplayCurrentChange(double current);
     }
 }

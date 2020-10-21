@@ -42,5 +42,10 @@ namespace ChargeLocker
         {
             displayer.PrintMessage("Fjern telefon");
         }
+
+        public void DisplayCurrentChange(double current)
+        {
+            displayer.PrintMessage($"New current: {current}");
+        }
     }
 }

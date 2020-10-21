@@ -4,10 +4,19 @@ namespace ChargeLocker
 {
     public class ChargeControl : IChargeControl
     {
-        public ChargeControl(IUsbCharger usbCharger)
+        
+        public ChargeControl(IUsbCharger usbCharger, IMessageFormatter formatter)
         {
             USBCharger = usbCharger;
+            USBCharger.CurrentValueEvent += HandleCurrentEvent;
+            messageFormatter = formatter;
         }
+
+        private void HandleCurrentEvent(object sender, CurrentEventArgs e)
+        {
+            messageFormatter.DisplayCurrentChange(e.Current);
+        }
+
         public void StartCharge()
         {
             USBCharger.StartCharge();
