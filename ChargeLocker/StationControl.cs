@@ -15,6 +15,7 @@ namespace ChargeLocker
         private ILogFile logFile;
         private int rfid;
         private bool occupied;
+        private bool doorClosed;
 
         public  StationControl(IDoor Door,IRfidReader RFIDReader,IMessageFormatter messageFormatter,IChargeControl chargeControl,ILogFile logFile)
         {
@@ -32,18 +33,55 @@ namespace ChargeLocker
 
         private void HandleDoorCloseEvent(object? sender, DoorCloseEventArgs e)
         {
-            throw new NotImplementedException();
+            doorClosed = true;
+            messageFormatter.DisplayEnterRFID();
+           
         }
 
 
         private void HandleDoorOpenEvent(object? sender, DoorOpenEventArgs e)
         {
-            throw new NotImplementedException();
+            doorClosed = false;
+            messageFormatter.DisplayConnect();
         }
 
         private void HandleRFIDDetectedEvent(object sender, RFIDDetectedEventArgs e)
         {
-            
+            if (occupied)//optaget
+            {
+                if (CheckId(e.RFID))//korrekt RFID
+                {
+                    chargeControl.StopCharge();
+                    door.Unlock();
+                    occupied = false;
+                    messageFormatter.DisplayRemovePhone();
+                }
+                else //forkert RFID
+                {
+                    messageFormatter.DisplayRFIDError();
+                }
+            }
+            else if (doorClosed)//hvis ikke optaget og dør er lukket
+            {
+                if (!chargeControl.IsConnected())
+                {
+                    messageFormatter.DisplayConnectionError();
+                }
+                else
+                {
+                    rfid = e.RFID;
+                    chargeControl.StartCharge();
+                    occupied = true;
+                    door.Lock();
+                    //log dør låst
+                    messageFormatter.DisplayOccupied();
+                }
+            }
+        }
+
+        private bool CheckId(int rfid)
+        {
+            return this.rfid == rfid;
         }
     }
 }

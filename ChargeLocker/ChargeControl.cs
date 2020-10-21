@@ -2,7 +2,7 @@
 {
     public class ChargeControl : IChargeControl
     {
-        public void startCharge()
+        public void StartCharge()
         {
             USBCharger.StartCharge();
         }
@@ -17,7 +17,7 @@
             return USBCharger.Connected;
         }
 
-        private IUSBCharger USBCharger;
+        private IUsbCharger USBCharger;
         private IMessageFormatter messageFormatter;
 
     }
