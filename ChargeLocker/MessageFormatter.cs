@@ -8,6 +8,11 @@ namespace ChargeLocker
 
     {
         private IDisplayer displayer;
+
+        public MessageFormatter(IDisplayer disp)
+        {
+            displayer = disp;
+        }
         public void DisplayEnterRFID()
         {
             displayer.PrintMessage("Indlæs RFID");

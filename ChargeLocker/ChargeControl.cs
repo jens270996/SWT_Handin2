@@ -1,7 +1,13 @@
-﻿namespace ChargeLocker
+﻿using System;
+
+namespace ChargeLocker
 {
     public class ChargeControl : IChargeControl
     {
+        public ChargeControl(IUsbCharger usbCharger)
+        {
+            USBCharger = usbCharger;
+        }
         public void StartCharge()
         {
             USBCharger.StartCharge();

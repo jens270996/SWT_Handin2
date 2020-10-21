@@ -9,7 +9,7 @@ namespace ChargeLocker
     public class StationControl
     {
         private IDoor door;
-        private IRfidReader rfidReader;
+        
         private IMessageFormatter messageFormatter;
         private IChargeControl chargeControl;
         private ILogFile logFile;
@@ -20,29 +20,36 @@ namespace ChargeLocker
         public  StationControl(IDoor Door,IRfidReader RFIDReader,IMessageFormatter messageFormatter,IChargeControl chargeControl,ILogFile logFile)
         {
             door = Door;
-            rfidReader = RFIDReader;
+            
             this.messageFormatter = messageFormatter;
             this.chargeControl = chargeControl;
             this.logFile = logFile;
             occupied = false;
+            doorClosed = true;
             //register to events
-            this.rfidReader.RFIDDetected += HandleRFIDDetectedEvent;
+            RFIDReader.RFIDDetected += HandleRFIDDetectedEvent;
             this.door.DoorOpenEvent += HandleDoorOpenEvent;
             this.door.DoorCloseEvent += HandleDoorCloseEvent;
         }
 
-        private void HandleDoorCloseEvent(object? sender, DoorCloseEventArgs e)
+        private void HandleDoorCloseEvent(object sender, DoorCloseEventArgs e)
         {
-            doorClosed = true;
-            messageFormatter.DisplayEnterRFID();
-           
+            if (!doorClosed)
+            {
+                doorClosed = true;
+                messageFormatter.DisplayEnterRFID();
+            }
+
         }
 
 
-        private void HandleDoorOpenEvent(object? sender, DoorOpenEventArgs e)
+        private void HandleDoorOpenEvent(object sender, DoorOpenEventArgs e)
         {
-            doorClosed = false;
-            messageFormatter.DisplayConnect();
+            if (!occupied && doorClosed)
+            {
+                doorClosed = false;
+                messageFormatter.DisplayConnect();
+            }
         }
 
         private void HandleRFIDDetectedEvent(object sender, RFIDDetectedEventArgs e)
