@@ -50,6 +50,23 @@ namespace ChargeLockerTests
 
             Assert.That(receivedArgs.RFID, Is.EqualTo(a));
         }
+
+        [Test]
+        public void SimulateRFIDReceive_EventContainsCorrect_object()
+        {
+
+            
+            object obj=null;
+            _uut.RFIDDetected += (o, args) =>
+            {
+
+                obj = o;
+            };
+
+            _uut.SimulateScan(0);
+
+            Assert.That(obj as RFIDReaderSimulator, Is.EqualTo(_uut));
+        }
     }
    
 }
