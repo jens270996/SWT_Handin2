@@ -4,18 +4,18 @@ using System.Text;
 
 namespace ChargeLocker
 {
-    class DoorSimulator:IDoor
+    public class DoorSimulator:IDoor
     {
         public event EventHandler<DoorCloseEventArgs> DoorCloseEvent;
         public event EventHandler<DoorOpenEventArgs> DoorOpenEvent;
         public void Lock()
         {
-            
+            Console.WriteLine("Door is locked");
         }
 
         public void Unlock()
         {
-           
+            Console.WriteLine("Door is unlocked");
         }
 
         public void SimulateDoorOpen()
