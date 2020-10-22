@@ -22,9 +22,10 @@
         </ClassMask>
         <FunctionMask>*</FunctionMask>
       </FilterEntry>
+
       <FilterEntry>
         <ModuleMask>chargelocker.dll</ModuleMask>
-        <ClassMask>UsbChargerSimulator.cs</ClassMask>
+        <ClassMask>UsbChargerSimulator</ClassMask>
         <FunctionMask>*</FunctionMask>
       </FilterEntry>
     </ExcludeFilters>
