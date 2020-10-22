@@ -86,6 +86,19 @@ namespace ChargeLockerTests
 
             chargeControl.Received(1).StartCharge();
         }
+        [Test]
+        public void HandleRFIDDetectedEvent_NotOccupiedDoorClosedPhoneConnected_LogDoorLockedCalled()
+        {
+            //default initering giver denne opsætning
+            chargeControl.Configure().IsConnected().Returns(true);
+            var args = new RFIDDetectedEventArgs();
+
+
+            args.RFID = 17;
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            logFile.Received(1).LogDoorLocked(17);
+        }
 
         [Test]
         public void HandleRFIDDetectedEvent_NotOccupiedDoorClosedPhoneNotConnected_DisplayConnectionErrorCalled()
@@ -102,7 +115,69 @@ namespace ChargeLockerTests
         }
 
 
+        [Test]
+        public void HandleRFIDDetectedEvent_OccupiedCorrectRFID_StopChargeCalled()
+        {
+            //default initering giver denne opsætning
+            chargeControl.Configure().IsConnected().Returns(true);
 
+            var args = new RFIDDetectedEventArgs();
 
+            args.RFID = 17;
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            chargeControl.Received(1).StopCharge();
+
+        }
+        [Test]
+        public void HandleRFIDDetectedEvent_OccupiedCorrectRFID_LogDoorOpenCalled()
+        {
+            //default initering giver denne opsætning
+            chargeControl.Configure().IsConnected().Returns(true);
+
+            var args = new RFIDDetectedEventArgs();
+
+            args.RFID = 17;
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            logFile.Received(1).LogDoorUnlocked(17);
+
+        }
+        [Test]
+        public void HandleRFIDDetectedEvent_OccupiedCorrectRFID_UnlockCalled()
+        {
+            //default initering giver denne opsætning
+            chargeControl.Configure().IsConnected().Returns(true);
+
+            var args = new RFIDDetectedEventArgs();
+
+            args.RFID = 17;
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            door.Received(1).Unlock();
+
+        }
+        [Test]
+        public void HandleRFIDDetectedEvent_OccupiedCorrectRFID_DisplayRemovePhoneCalled()
+        {
+            //default initering giver denne opsætning
+            chargeControl.Configure().IsConnected().Returns(true);
+
+            var args = new RFIDDetectedEventArgs();
+
+            args.RFID = 17;
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            msgFormatter.Received(1).DisplayRemovePhone();
+
+        }
     }
 }
