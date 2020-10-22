@@ -3,6 +3,7 @@ using System.Timers;
 
 namespace ChargeLocker
 {
+
     public class UsbChargerSimulator : IUsbCharger
     {
         // Constants

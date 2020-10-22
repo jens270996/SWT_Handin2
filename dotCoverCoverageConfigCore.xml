@@ -12,11 +12,19 @@
   -->
   <Filters>
     <IncludeFilters>
+
     </IncludeFilters>
     <ExcludeFilters>
       <FilterEntry>
         <ModuleMask>nunit.framework</ModuleMask>
-        <ClassMask>*</ClassMask>
+        <ClassMask>
+          *
+        </ClassMask>
+        <FunctionMask>*</FunctionMask>
+      </FilterEntry>
+      <FilterEntry>
+        <ModuleMask>chargelocker.dll</ModuleMask>
+        <ClassMask>ChargeLocker.UsbChargerSimulator</ClassMask>
         <FunctionMask>*</FunctionMask>
       </FilterEntry>
     </ExcludeFilters>
