@@ -179,5 +179,26 @@ namespace ChargeLockerTests
             msgFormatter.Received(1).DisplayRemovePhone();
 
         }
+
+        [Test]
+        public void HandleRFIDDetectedEvent_OccupiedWrongRFID_DisplayRFIDErrorCalled()
+        {
+            //default initering giver denne opsætning
+            chargeControl.Configure().IsConnected().Returns(true);
+
+            var args = new RFIDDetectedEventArgs();
+
+            args.RFID = 17;
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            args = new RFIDDetectedEventArgs();
+
+            args.RFID = 16;
+            rfid.RFIDDetected += Raise.EventWith(args);
+
+            msgFormatter.Received(1).DisplayRFIDError();
+            door.DidNotReceive().Unlock();
+
+        }
     }
 }
