@@ -7,12 +7,13 @@ namespace ChargeLocker
 {
     public class LogFile:ILogFile
     {
-        private string file = @"C:\Users\jens-\source\repos\SoftwareTest\ChargeLocker";
-        //private string file = @"..\log.txt";
+        //private string file = @"C:\Users\jens-\source\repos\SoftwareTest\ChargeLocker\log.txt";
+        private string file = @"\log.txt";
 
         public LogFile()
         {
             
+            file=Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + file;
         }
         public void LogDoorLocked(int rfid)
         {
