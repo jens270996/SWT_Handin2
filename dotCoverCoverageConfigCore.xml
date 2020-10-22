@@ -18,9 +18,18 @@
       <FilterEntry>
         <ModuleMask>nunit.framework</ModuleMask>
         <ClassMask>
-          USBChargerSimulator
+          *
         </ClassMask>
         <FunctionMask>*</FunctionMask>
+      </FilterEntry>
+      <FilterEntry>
+        <ModuleMask>
+          *ChargeLocker*
+
+        </ModuleMask>
+        <ClassMask>
+          *USB*
+        </ClassMask>
       </FilterEntry>
     </ExcludeFilters>
   </Filters>
