@@ -24,7 +24,7 @@
       </FilterEntry>
       <FilterEntry>
         <ModuleMask>chargelocker.dll</ModuleMask>
-        <ClassMask>UsbChargerSimulator</ClassMask>
+        <ClassMask>UsbChargerSimulator.cs</ClassMask>
         <FunctionMask>*</FunctionMask>
       </FilterEntry>
     </ExcludeFilters>
