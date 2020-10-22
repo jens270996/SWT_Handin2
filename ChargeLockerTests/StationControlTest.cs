@@ -29,7 +29,7 @@ namespace ChargeLockerTests
 
         }
 
-        //handle door closed events:
+        //handle door open/closed events:
         [Test]
         public void HandleDoorOpenEvent_DoorClosedNotOccupied_MsgFormatterDisplayConnectCalled()
         {
@@ -37,5 +37,26 @@ namespace ChargeLockerTests
 
             msgFormatter.Received(1).DisplayConnect();
         }
+
+
+        [Test]
+        public void HandleDoorCloseEvent_DoorOpenNotOccupied_MsgFormatterDisplayEnterRFIDCalled()
+        {
+            door.DoorOpenEvent += Raise.EventWith(new DoorOpenEventArgs());
+            door.DoorCloseEvent += Raise.EventWith(new DoorCloseEventArgs());
+            msgFormatter.Received(1).DisplayEnterRFID();
+        }
+
+        [Test]
+        public void HandleDoorCloseEvent_DoorClosedNotOccupied_MsgFormatterDisplayEnterRFIDNOTCalled()
+        {
+           
+            door.DoorCloseEvent += Raise.EventWith(new DoorCloseEventArgs());
+            msgFormatter.Received(0).DisplayEnterRFID();
+        }
+
+
+
+
     }
 }
