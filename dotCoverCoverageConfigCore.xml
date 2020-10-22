@@ -23,13 +23,8 @@
         <FunctionMask>*</FunctionMask>
       </FilterEntry>
       <FilterEntry>
-        <ModuleMask>
-          *ChargeLocker*
-
-        </ModuleMask>
-        <ClassMask>
-          *USB*
-        </ClassMask>
+        <ModuleMask>chargelocker.dll</ModuleMask>
+        <ClassMask>ChargeLocker.UsbChargerSimulator</ClassMask>
         <FunctionMask>*</FunctionMask>
       </FilterEntry>
     </ExcludeFilters>
