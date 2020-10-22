@@ -13,7 +13,7 @@ namespace ChargeLocker
             var msgFormatter = new MessageFormatter(displayer);
             var usbCharger = new UsbChargerSimulator();
             var chargeControl = new ChargeControl(usbCharger,msgFormatter);
-            var log= new LogFile("log.txt");
+            var log= new LogFile();
             var stationControl = new StationControl(door,rfidReader,msgFormatter,chargeControl,log);
 
             bool finish = false;

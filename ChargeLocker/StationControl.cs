@@ -60,6 +60,7 @@ namespace ChargeLocker
                 {
                     chargeControl.StopCharge();
                     door.Unlock();
+                    logFile.LogDoorUnlocked(rfid);
                     occupied = false;
                     messageFormatter.DisplayRemovePhone();
                 }
@@ -81,6 +82,7 @@ namespace ChargeLocker
                     occupied = true;
                     door.Lock();
                     //log dør låst
+                    logFile.LogDoorLocked(rfid);
                     messageFormatter.DisplayOccupied();
                 }
             }
