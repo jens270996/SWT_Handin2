@@ -86,6 +86,19 @@ namespace ChargeLockerTests
 
             chargeControl.Received(1).StartCharge();
         }
+
+        [Test]
+        public void HandleRFIDDetectedEvent_NotOccupiedDoorClosedPhoneConnected_LockCalled()
+        {
+            //default initering giver denne opsætning
+            chargeControl.Configure().IsConnected().Returns(true);
+            var args = new RFIDDetectedEventArgs();
+
+
+            args.RFID = Arg.Any<int>();
+            rfid.RFIDDetected += Raise.EventWith(args);
+            door.Received(1).Lock();
+        }
         [Test]
         public void HandleRFIDDetectedEvent_NotOccupiedDoorClosedPhoneConnected_LogDoorLockedCalled()
         {
