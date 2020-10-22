@@ -30,6 +30,7 @@
         <ClassMask>
           *USB*
         </ClassMask>
+        <FunctionMask>*</FunctionMask>
       </FilterEntry>
     </ExcludeFilters>
   </Filters>
