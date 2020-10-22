@@ -18,7 +18,7 @@ namespace ChargeLockerTests
         private IUsbCharger _usbChargerSimulator;
 
         [SetUp]
-        public void setup()
+        public void Setup()
         {
             _messageFormatter = Substitute.For<IMessageFormatter>();
             _usbChargerSimulator = Substitute.For<IUsbCharger>();
@@ -67,6 +67,13 @@ namespace ChargeLockerTests
         {
             _usbChargerSimulator.Connected.Returns(true);
             Assert.That(_uut.IsConnected(), Is.EqualTo(true));
+        }
+
+        [Test]
+        public void IsConnected_FunctionCalled_ReturnsFalse()
+        {
+            _usbChargerSimulator.Connected.Returns(false);
+            Assert.That(_uut.IsConnected(), Is.EqualTo(false));
         }
     }
 }
