@@ -10,12 +10,12 @@ namespace ChargeLocker
         public event EventHandler<DoorOpenEventArgs> DoorOpenEvent;
         public void Lock()
         {
-            Console.WriteLine("Door is locked");
+            
         }
 
         public void Unlock()
         {
-            Console.WriteLine("Door is unlocked");
+            
         }
 
         public void SimulateDoorOpen()
