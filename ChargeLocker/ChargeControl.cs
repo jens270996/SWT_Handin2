@@ -4,7 +4,9 @@ namespace ChargeLocker
 {
     public class ChargeControl : IChargeControl
     {
-        
+        private IUsbCharger USBCharger;
+        private IMessageFormatter messageFormatter;
+
         public ChargeControl(IUsbCharger usbCharger, IMessageFormatter formatter)
         {
             USBCharger = usbCharger;
@@ -31,9 +33,5 @@ namespace ChargeLocker
         {
             return USBCharger.Connected;
         }
-
-        private IUsbCharger USBCharger;
-        private IMessageFormatter messageFormatter;
-
     }
 }
