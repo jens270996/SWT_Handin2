@@ -8,7 +8,7 @@ namespace ChargeLocker
     {
         public event EventHandler<DoorCloseEventArgs> DoorCloseEvent;
         public event EventHandler<DoorOpenEventArgs> DoorOpenEvent;
-        private bool locked = false;
+        public bool locked { get; private set; }
         public void Lock()
         {
             if (locked == false)
