@@ -66,7 +66,7 @@ namespace ChargeLockerTests
         [Test]
         public void IsConnected_FunctionCalled_ReturnsTrue()
         {
-            _usbChargerSimulator.Si
+            _usbChargerSimulator.Connected.Returns(true);
             Assert.That(_uut.IsConnected(), Is.EqualTo(true));
         }
     }

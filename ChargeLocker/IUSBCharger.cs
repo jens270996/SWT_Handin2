@@ -17,7 +17,7 @@ namespace ChargeLocker
         double CurrentValue { get; }
 
         // Require connection status of the phone
-        bool Connected { get; set; }
+        bool Connected { get; }
 
         // Start charging
         void StartCharge();
