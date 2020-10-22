@@ -8,12 +8,10 @@ namespace ChargeLockerTests
     public class DoorTest
     {
         private DoorSimulator _uut;
-        private IDoor _door;
 
         [SetUp]
         public void Setup()
         {
-            _door = Substitute.For<IDoor>();
             _uut = new DoorSimulator();
         }
 
