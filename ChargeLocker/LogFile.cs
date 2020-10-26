@@ -15,6 +15,12 @@ namespace ChargeLocker
             
             file=Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + file;
         }
+        public LogFile(string filePath)
+        {
+            file = filePath;
+            //file = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + file;
+
+        }
         public void LogDoorLocked(int rfid)
         {
             String logmsg = $"Door locked at {DateTime.Now} by RFID {rfid}";

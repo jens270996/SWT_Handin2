@@ -1,0 +1,6 @@
+Door unlocked at 26-10-2020 10:54:32 by RFID 17
+Door unlocked at 26-10-2020 10:54:32 by RFID 17
+Door unlocked at 26-10-2020 10:54:32 by RFID 17
+Door locked at 26-10-2020 10:54:32 by RFID 16
+Door locked at 26-10-2020 10:54:32 by RFID 16
+Door locked at 26-10-2020 10:54:32 by RFID 16

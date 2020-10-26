@@ -3,3 +3,9 @@ Door unlocked at 22-10-2020 10:32:14 by RFID 1
 Door locked at 22/10/2020 10.36.52 by RFID 1
 Door unlocked at 22/10/2020 10.36.55 by RFID 1
 Door locked at 22-10-2020 11:32:43 by RFID 1
+Door locked at 26-10-2020 08:50:25 by RFID 17
+Door unlocked at 26-10-2020 08:50:31 by RFID 17
+Door locked at 26-10-2020 08:50:45 by RFID 17
+Door unlocked at 26-10-2020 08:50:48 by RFID 17
+Door locked at 26-10-2020 10:38:11 by RFID 17
+Door unlocked at 26-10-2020 10:38:12 by RFID 17
