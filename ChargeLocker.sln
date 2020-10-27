@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChargeLocker", "ChargeLocker\ChargeLocker.csproj", "{63C6071C-2875-4781-8B4F-9FBA60E533B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChargeLocker", "ChargeLocker\ChargeLocker.csproj", "{63C6071C-2875-4781-8B4F-9FBA60E533B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChargeLockerTests", "ChargeLockerTests\ChargeLockerTests.csproj", "{CC837D63-E3D2-46A7-AB69-B624AD57B555}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChargeLockerTests", "ChargeLockerTests\ChargeLockerTests.csproj", "{CC837D63-E3D2-46A7-AB69-B624AD57B555}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChargeLockerApp", "ChargeLockerApp\ChargeLockerApp.csproj", "{401BE3BB-F670-48EB-905A-26376ACFFFE8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CC837D63-E3D2-46A7-AB69-B624AD57B555}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC837D63-E3D2-46A7-AB69-B624AD57B555}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC837D63-E3D2-46A7-AB69-B624AD57B555}.Release|Any CPU.Build.0 = Release|Any CPU
+		{401BE3BB-F670-48EB-905A-26376ACFFFE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{401BE3BB-F670-48EB-905A-26376ACFFFE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{401BE3BB-F670-48EB-905A-26376ACFFFE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{401BE3BB-F670-48EB-905A-26376ACFFFE8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
