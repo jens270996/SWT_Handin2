@@ -24,7 +24,7 @@
       </FilterEntry>
 
       <FilterEntry>
-        <ModuleMask>nunit.framework</ModuleMask>
+        <ModuleMask>ChargeLocker.dll</ModuleMask>
         <ClassMask>
           ConsoleDisplayer
         </ClassMask>
