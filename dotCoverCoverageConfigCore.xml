@@ -28,11 +28,6 @@
           ConsoleDisplayer.cs
         </ClassMask>
       </FilterEntry>
-      <FilterEntry>
-        <ModuleMask>chargelocker.dll</ModuleMask>
-        <ClassMask>UsbChargerSimulator</ClassMask>
-        <FunctionMask>*</FunctionMask>
-      </FilterEntry>
     </ExcludeFilters>
   </Filters>
   <!-- Attribute filters. It's possible to use asterisks as wildcard symbols.
