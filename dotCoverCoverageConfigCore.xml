@@ -24,9 +24,9 @@
       </FilterEntry>
 
       <FilterEntry>
-        <ModuleMask>ChargeLocker</ModuleMask>
+        <ModuleMask>ChargeLocker.dll</ModuleMask>
         <ClassMask>
-          ConsoleDisplayer
+          ConsoleDisplayer.cs
         </ClassMask>
         <FunctionMask>*</FunctionMask>
       </FilterEntry>
