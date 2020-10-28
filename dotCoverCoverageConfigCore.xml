@@ -22,14 +22,12 @@
         </ClassMask>
         <FunctionMask>*</FunctionMask>
       </FilterEntry>
-
       <FilterEntry>
         <ModuleMask>chargelocker.dll</ModuleMask>
         <ClassMask>
           ConsoleDisplayer.cs
         </ClassMask>
       </FilterEntry>
-      
       <FilterEntry>
         <ModuleMask>chargelocker.dll</ModuleMask>
         <ClassMask>UsbChargerSimulator</ClassMask>
