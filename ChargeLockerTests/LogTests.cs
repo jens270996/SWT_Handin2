@@ -14,15 +14,12 @@ namespace ChargeLockerTests
 
         public LogTests()
         {
-            file = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + file;
+            file = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + file; // sker det her ikke to gange?
         }
 
         [SetUp]
         public void SetUp()
         {
-            
-
-            
             _uut = new LogFile(file);
             if (File.Exists(file))
                 File.Delete(file);
@@ -31,7 +28,6 @@ namespace ChargeLockerTests
         [TestCase(17)]
         [TestCase(-17)]
         [TestCase(0)]
-
         public void LogDoorLocked_CorrectRFID(int a)
         {
             _uut.LogDoorLocked(a);
@@ -41,7 +37,6 @@ namespace ChargeLockerTests
                 byte[] reBytes = new byte[256];
                 sw.Read(reBytes, 0, 256);
                 res= Encoding.Default.GetString(reBytes);
-
             }
 
             Assert.That(res.Contains($"{a}"));
@@ -58,7 +53,6 @@ namespace ChargeLockerTests
                 byte[] reBytes = new byte[256];
                 sw.Read(reBytes, 0, 256);
                 res = Encoding.Default.GetString(reBytes);
-
             }
 
             string[] lines=res.Split(Environment.NewLine);
@@ -70,7 +64,6 @@ namespace ChargeLockerTests
         [TestCase(17)]
         [TestCase(-17)]
         [TestCase(0)]
-
         public void LogDoorUnLocked_CorrectRFID(int a)
         {
             _uut.LogDoorUnlocked(a);
@@ -80,7 +73,6 @@ namespace ChargeLockerTests
                 byte[] reBytes = new byte[256];
                 sw.Read(reBytes, 0, 256);
                 res = Encoding.Default.GetString(reBytes);
-
             }
 
             Assert.That(res.Contains($"{a}"));
@@ -97,7 +89,6 @@ namespace ChargeLockerTests
                 byte[] reBytes = new byte[256];
                 sw.Read(reBytes, 0, 256);
                 res = Encoding.Default.GetString(reBytes);
-
             }
 
             string[] lines = res.Split(Environment.NewLine);
@@ -120,8 +111,8 @@ namespace ChargeLockerTests
                 byte[] reBytes = new byte[256];
                 sw.Read(reBytes, 0, 256);
                 res = Encoding.Default.GetString(reBytes);
-
             }
+
             string[] lines = res.Split(Environment.NewLine);
             Assert.That(lines.Length, Is.EqualTo(6));
         }
