@@ -44,7 +44,7 @@ namespace ChargeLockerTests
         [Test]
         public void Lock_FunctionCalled_LockedBoolIsTrue()
         {
-            _uut.Unlock();                                   //kommentar omkring implementering i rapport
+            _uut.Unlock();                                   
             _uut.Lock();
             Assert.That(_uut.locked, Is.EqualTo(true));
         }
@@ -52,7 +52,7 @@ namespace ChargeLockerTests
         [Test]
         public void Unlock_FunctionCalled_LockedBoolIsFalse()
         {
-            _uut.Lock();                                    //kommentar omkring implementering i rapport
+            _uut.Lock();                                    
             _uut.Unlock();
             Assert.That(_uut.locked, Is.EqualTo(false));
         }
