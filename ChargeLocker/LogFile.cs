@@ -7,19 +7,16 @@ namespace ChargeLocker
 {
     public class LogFile:ILogFile
     {
-        //private string file = @"C:\Users\jens-\source\repos\SoftwareTest\ChargeLocker\log.txt";
+        
         private string file = @"\log.txt";
 
         public LogFile()
         {
-            
             file=Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + file;
         }
         public LogFile(string filePath)
         {
             file = filePath;
-            //file = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName + file;
-
         }
         public void LogDoorLocked(int rfid)
         {
@@ -29,9 +26,7 @@ namespace ChargeLocker
                 
                 sw.WriteLine(logmsg);
             }
-
         }
-
         public void LogDoorUnlocked(int rfid)
         {
             String logmsg = $"Door unlocked at {DateTime.Now} by RFID {rfid}";

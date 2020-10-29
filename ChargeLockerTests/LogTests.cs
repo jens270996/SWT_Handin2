@@ -21,8 +21,6 @@ namespace ChargeLockerTests
         public void SetUp()
         {
             
-
-            
             _uut = new LogFile(file);
             if (File.Exists(file))
                 File.Delete(file);
